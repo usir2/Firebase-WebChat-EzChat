@@ -1,5 +1,19 @@
 # Firebase-WebChat-EzChat Version 1.0
 * Use git clone or download the project file.<br />
+* Need firebase.js file 
+* (example <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  // TODO: Replace with your project's customized code snippet
+  var config = {
+    apiKey: "<API_KEY>",
+    authDomain: "<PROJECT_ID>.firebaseapp.com",
+    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    storageBucket: "<BUCKET>.appspot.com",
+    messagingSenderId: "<SENDER_ID>",
+  };
+  firebase.initializeApp(config);
+</script> )<br/>
 # Detail
 * Web chat ( Firebase,SemanticUI ).<br />
 
