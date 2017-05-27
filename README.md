@@ -1,5 +1,7 @@
 # Firebase-WebChat-EzChat Version 1.0
 * Use git clone or download the project file.<br />
+# Detail
+* Web chat ( Firebase,SemanticUI ).<br />
 
 # Features
 * Register with email and password.<br />
