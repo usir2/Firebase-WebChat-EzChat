@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="semantic/semantic.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
+    <script src="script/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery_toast/demos/css/jquery.toast.css">
+    <script src="jquery_toast/demos/js/jquery.toast.js"></script>
+
+</head>
+
+<body>
+
+    <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a id="bt_profile" class="item">
+            <i class="user icon"></i>
+            Profile
+        </a>
+        <a class="item">
+            <i class="wechat icon"></i>
+            Chat
+        </a>
+        <a class="item">
+            <i class="smile icon"></i>
+            Friends
+        </a>
+        <a id="bt_logout" class="item">
+            <i class="remove circle icon"></i>
+            Logout
+        </a>
+    </div>
+
+
+    <div class="pusher">
+        <div class="ui inverted main menu">
+            <div class="container">
+                <a  id="sidebar_icon" class="launch item">
+
+                    <i class="list layout icon"></i>
+                    MENU
+                </a>
+                <div value="no" id="search_bar" class="ui search selection dropdown" style="width:450px">
+                    <input id="" type="text" name="Search...">
+                    <i class="search icon"></i>
+
+                    <div class="default text">ADD FRIENDS</div>
+                        <div id="user_list" class="menu">
+                           
+                        </div>
+                </div>
+
+                <div class="ui icon" >
+  <div class="ui top left pointing dropdown button" style="padding-top:7px;padding-bottom: 8px;">
+    <i class="users icon"></i>Friends
+    <div id="num_alert" class=" ui red label">0</div>
+    <div id="alert_list" class="menu">
+      
+    </div>
+  </div>
+  </div>
+
+
+            </div>
+
+
+
+        
+
+
+
+
+        </div>
+        <div class="ui main grid" >
+        <div class="three wide column">
+      
+     
+      
+
+      <div class="ui card">
+    <div class="image">
+        <div id="loader_icon" class="ui active centered inline loader"></div>
+
+     <img id="profile_img" src="https://semantic-ui.com/images/avatar/large/steve.jpg" style="display: none;">
+     <div class="ui indicating progress"  id="bar_upload" style="display: none;">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div id="lebel_bar_upload" class="label"></div>
+        </div>
+    
+        
+         
+    </div>
+    <div class="content">
+      <div id="email_header" class="header">Loading..</div>
+      <div class="meta">
+        <a>Friends</a>
+      </div>
+      <div class="description">
+        Matthew is an interior designer living in New York.
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+      <span>
+        <i class="user icon"></i>
+        75 Friends
+      </span>
+    </div>
+  </div>
+      
+    </div>
+            
+            <div class="nine wide  column">
+            <div class="ui vertical fluid tabular menu">
+                    <a class="item ui header" style="background-color: lightskyblue">
+                        <div class="container">
+                        MESSAGE
+                        <i class="talk icon" style="float:none"></i>
+                        </div>
+                    </a>
+                    </div>
+                <div id="chat_box"  style="height: 65vh;overflow: scroll;">
+                    <div class="container" > 
+                    <div class="ui compact message">
+                    <p>SELECT FRIEND TO CHAT...</p>
+                  </div>    
+                    </div>
+
+                </div>
+
+                <div class="ui segment">
+                    <div class="ui fluid action input">
+                        <input name="text_message" id="text_message" type="text" placeholder="Enter Message...">
+                        <div id="bt_send" class="ui disabled button">SEND</div>
+                    </div>       
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <div class="ui vertical fluid  menu" style="height: 80vh;">
+                    <a class="item ui header" style="background-color: lightgreen">
+                        <div class="container">
+
+                             Friend
+                             <i class="users icon" style="float:none"></i>
+                        </div>
+                    </a>
+                    <div id="list_friend">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+            <div id="modal1" class="ui modal" style="width:290px">
+                    <div class="ui card">
+                  
+                    <div class="image">
+                     <img id="friend_photo" src="https://semantic-ui.com/images/avatar/large/steve.jpg">
+                     <div class="ui indicating progress"  id="bar_upload" style="display: none;">
+                          <div class="bar">
+                            <div class="progress"></div>
+                          </div>
+                          <div id="lebel_bar_upload" class="label"></div>
+                        </div>
+                    
+                        
+                         
+                    </div>
+                    <div class="content">
+                      <div id="friend_name" class="header">Matt Giampietro</div>
+                      <div class="meta">
+                        <a>Friends</a>
+                      </div>
+                      <div class="description">
+                        Matthew is an interior designer living in New York.
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                        Joined in 2013
+                      </span>
+                      <span>
+                        <i class="user icon"></i>
+                        75 Friends
+                      </span>
+                    </div>
+                    <button id="bt_addfrined" class="ui inverted green button">ADD FRIEND</button>
+
+                  </div>
+                            </div>
+
+                  <div id="modal2" class="ui modal" style="width:290px">
+                    <div class="ui card">
+                  
+                    <div class="image">
+                     <img id="friend_photo2" src="https://semantic-ui.com/images/avatar/large/steve.jpg">
+                     <div class="ui indicating progress"  id="bar_upload" style="display: none;">
+                          <div class="bar">
+                            <div class="progress"></div>
+                          </div>
+                          <div id="lebel_bar_upload" class="label"></div>
+                        </div>
+                    
+                        
+                         
+                    </div>
+                    <div class="content">
+                      <div id="friend_name2" class="header">Matt Giampietro</div>
+                      <div class="meta">
+                        <a>Friends</a>
+                      </div>
+                      <div class="description">
+                        Matthew is an interior designer living in New York.
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                        Joined in 2013
+                      </span>
+                      <span>
+                        <i class="user icon"></i>
+                        75 Friends
+                      </span>
+                    </div>
+                    <button id="bt_acceptFriend" class="ui inverted green button">ACCEPT</button>
+
+                  </div>
+                            </div>
+    
+
+           <input type="file" value="upload" id="fileButton" style="display: none;" />
+
+
+
+    <script src="script/firebase.js"></script>
+</body>
+
+</html>
